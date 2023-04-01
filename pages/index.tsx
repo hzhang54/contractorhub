@@ -7,7 +7,7 @@ import { Navbar } from '../components/Navbar'
 function Home() {
 	return (
 		<>
-			<Navbar user={null} isAuthPage />
+			<Navbar />
 			<Hero />
 			<FeatureList />
 			<Testimonial />
