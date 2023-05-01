@@ -19,20 +19,13 @@ export const createRecipe = /* GraphQL */ `
   mutation CreateRecipe($input: RecipeCreateInput!) {
     createRecipe(input: $input) {
       id
+      coverImage
       title
       description
-      coverImage
-      ingredientsImage
       servings
       owner
-      ingredients {
-        items
-      }
-      steps {
-        image
-        title
-        description
-      }
+      ingredientsText
+      stepsText
     }
   }
 `;
@@ -40,20 +33,13 @@ export const updateRecipe = /* GraphQL */ `
   mutation UpdateRecipe($input: RecipeUpdateInput!) {
     updateRecipe(input: $input) {
       id
+      coverImage
       title
       description
-      coverImage
-      ingredientsImage
       servings
       owner
-      ingredients {
-        items
-      }
-      steps {
-        image
-        title
-        description
-      }
+      ingredientsText
+      stepsText
     }
   }
 `;
@@ -61,20 +47,13 @@ export const deleteRecipe = /* GraphQL */ `
   mutation DeleteRecipe($id: String!) {
     deleteRecipe(id: $id) {
       id
+      coverImage
       title
       description
-      coverImage
-      ingredientsImage
       servings
       owner
-      ingredients {
-        items
-      }
-      steps {
-        image
-        title
-        description
-      }
+      ingredientsText
+      stepsText
     }
   }
 `;

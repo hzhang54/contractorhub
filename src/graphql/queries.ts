@@ -24,20 +24,13 @@ export const getRecipe = /* GraphQL */ `
   query GetRecipe($id: String) {
     getRecipe(id: $id) {
       id
+      coverImage
       title
       description
-      coverImage
-      ingredientsImage
       servings
       owner
-      ingredients {
-        items
-      }
-      steps {
-        image
-        title
-        description
-      }
+      ingredientsText
+      stepsText
     }
   }
 `;
@@ -45,20 +38,13 @@ export const listRecipes = /* GraphQL */ `
   query ListRecipes {
     listRecipes {
       id
+      coverImage
       title
       description
-      coverImage
-      ingredientsImage
       servings
       owner
-      ingredients {
-        items
-      }
-      steps {
-        image
-        title
-        description
-      }
+      ingredientsText
+      stepsText
     }
   }
 `;

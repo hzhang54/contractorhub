@@ -81,7 +81,7 @@ const FeatureItem = ({ featureContent }: FeatureItemProps) => {
 					</div>
 					<div className="flex items-center">
 						<img
-							src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
+							src="https://res.cloudinary.com/dmqt94fit/image/upload/q_auto/v1682012370/miami-lunch_50_qp1itg.png"
 							alt="Product screenshot"
 							className=" w-full h-full object-cover rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-auto sm:h-auto md:-ml-4 lg:-ml-0"
 							width={1432}

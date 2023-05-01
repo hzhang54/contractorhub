@@ -12,7 +12,7 @@ export function Testimonial() {
 				<figure className="mt-10">
 					<blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
 						<p>
-							“I took my a trip to London for work/pleasure and found the most
+							“I took a trip to Miami for work/pleasure and found the most
 							amazing food. I felt inspired and wanted to an easy way to keep
 							track of the incredible recipes I had come across. Otterlicious
 							not only solved that need but makes it easy to manage these

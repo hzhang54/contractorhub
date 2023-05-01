@@ -30,59 +30,34 @@ export enum PLAN_STATUS_ENUM {
 
 
 export type RecipeCreateInput = {
-  title: string,
-  description: string,
   coverImage: string,
-  ingredientsImage: string,
-  servings: number,
-  ingredients: Array< IngredientInput | null >,
-  steps: Array< StepInput | null >,
-};
-
-export type IngredientInput = {
-  items: Array< string | null >,
-};
-
-export type StepInput = {
-  image?: string | null,
   title: string,
   description: string,
+  servings: number,
+  ingredientsText: string,
+  stepsText: string,
 };
 
 export type Recipe = {
   __typename: "Recipe",
   id: string,
+  coverImage: string,
   title: string,
   description: string,
-  coverImage: string,
-  ingredientsImage: string,
   servings: number,
   owner: string,
-  ingredients:  Array<Ingredient | null >,
-  steps:  Array<Step | null >,
-};
-
-export type Ingredient = {
-  __typename: "Ingredient",
-  items: Array< string | null >,
-};
-
-export type Step = {
-  __typename: "Step",
-  image?: string | null,
-  title: string,
-  description: string,
+  ingredientsText: string,
+  stepsText: string,
 };
 
 export type RecipeUpdateInput = {
   id: string,
+  coverImage: string,
   title: string,
   description: string,
-  coverImage: string,
-  ingredientsImage: string,
   servings: number,
-  ingredients: Array< IngredientInput | null >,
-  steps: Array< StepInput | null >,
+  ingredientsText: string,
+  stepsText: string,
 };
 
 export type UpdateUserMutationVariables = {
@@ -110,22 +85,13 @@ export type CreateRecipeMutation = {
   createRecipe?:  {
     __typename: "Recipe",
     id: string,
+    coverImage: string,
     title: string,
     description: string,
-    coverImage: string,
-    ingredientsImage: string,
     servings: number,
     owner: string,
-    ingredients:  Array< {
-      __typename: "Ingredient",
-      items: Array< string | null >,
-    } | null >,
-    steps:  Array< {
-      __typename: "Step",
-      image?: string | null,
-      title: string,
-      description: string,
-    } | null >,
+    ingredientsText: string,
+    stepsText: string,
   } | null,
 };
 
@@ -137,22 +103,13 @@ export type UpdateRecipeMutation = {
   updateRecipe?:  {
     __typename: "Recipe",
     id: string,
+    coverImage: string,
     title: string,
     description: string,
-    coverImage: string,
-    ingredientsImage: string,
     servings: number,
     owner: string,
-    ingredients:  Array< {
-      __typename: "Ingredient",
-      items: Array< string | null >,
-    } | null >,
-    steps:  Array< {
-      __typename: "Step",
-      image?: string | null,
-      title: string,
-      description: string,
-    } | null >,
+    ingredientsText: string,
+    stepsText: string,
   } | null,
 };
 
@@ -164,22 +121,13 @@ export type DeleteRecipeMutation = {
   deleteRecipe?:  {
     __typename: "Recipe",
     id: string,
+    coverImage: string,
     title: string,
     description: string,
-    coverImage: string,
-    ingredientsImage: string,
     servings: number,
     owner: string,
-    ingredients:  Array< {
-      __typename: "Ingredient",
-      items: Array< string | null >,
-    } | null >,
-    steps:  Array< {
-      __typename: "Step",
-      image?: string | null,
-      title: string,
-      description: string,
-    } | null >,
+    ingredientsText: string,
+    stepsText: string,
   } | null,
 };
 
@@ -216,22 +164,13 @@ export type GetRecipeQuery = {
   getRecipe?:  {
     __typename: "Recipe",
     id: string,
+    coverImage: string,
     title: string,
     description: string,
-    coverImage: string,
-    ingredientsImage: string,
     servings: number,
     owner: string,
-    ingredients:  Array< {
-      __typename: "Ingredient",
-      items: Array< string | null >,
-    } | null >,
-    steps:  Array< {
-      __typename: "Step",
-      image?: string | null,
-      title: string,
-      description: string,
-    } | null >,
+    ingredientsText: string,
+    stepsText: string,
   } | null,
 };
 
@@ -239,21 +178,12 @@ export type ListRecipesQuery = {
   listRecipes:  Array< {
     __typename: "Recipe",
     id: string,
+    coverImage: string,
     title: string,
     description: string,
-    coverImage: string,
-    ingredientsImage: string,
     servings: number,
     owner: string,
-    ingredients:  Array< {
-      __typename: "Ingredient",
-      items: Array< string | null >,
-    } | null >,
-    steps:  Array< {
-      __typename: "Step",
-      image?: string | null,
-      title: string,
-      description: string,
-    } | null >,
+    ingredientsText: string,
+    stepsText: string,
   } | null >,
 };

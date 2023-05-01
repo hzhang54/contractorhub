@@ -10,13 +10,14 @@ declare global {
 
 type PricingTableProps = {
 	user: {
+		username: string
 		attributes: {
 			email: string
 			sub: string
 		}
-		username: string
 	}
 }
+
 export const PricingTable = ({ user }: PricingTableProps) => {
 	return (
 		<>

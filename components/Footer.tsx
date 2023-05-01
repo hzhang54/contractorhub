@@ -1,6 +1,6 @@
 export const Footer = () => {
 	return (
-		<footer className="footer footer-center p-10 bg-primary text-primary-content">
+		<footer className="footer footer-center p-10 bg-emerald-200 text-primary-content">
 			<div>
 				<svg
 					width="50"

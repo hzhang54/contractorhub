@@ -20,13 +20,27 @@ export const Navbar = ({ isAuthPage }: NavBarProps) => {
 					{isAuthPage && (
 						<>
 							<li>
+								<Link href={'/my-recipes/'}>My Recipes</Link>
+							</li>
+							<li>
+								<Link href={'/my-recipes/create'}>Create Recipe</Link>
+							</li>
+							<li>
 								<Link href="/profile" className="justify-between">
 									Profile
 								</Link>
 							</li>
 							<li>
 								<button
-									onClick={() => Auth.signOut().then(() => router.push('/'))}
+									onClick={() =>
+										Auth.signOut().then(() => {
+											if (router.pathname !== '/') {
+												router.push('/')
+											} else {
+												window.location.reload()
+											}
+										})
+									}
 								>
 									Logout
 								</button>
@@ -34,7 +48,7 @@ export const Navbar = ({ isAuthPage }: NavBarProps) => {
 						</>
 					)}
 					<li>
-						{!isAuthPage && <Link href={'/recipes/create'}>Create Post</Link>}
+						{!isAuthPage && <Link href={'/my-recipes/'}>My Recipes</Link>}
 					</li>
 				</ul>
 			</div>

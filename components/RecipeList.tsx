@@ -1,17 +1,17 @@
-import { TravelPost } from '@/src/API'
+import { Recipe } from '@/src/API'
 import { CldImage } from 'next-cloudinary'
 
 export type RecipeListProps = {
-	travelPosts: TravelPost[] | []
-	handlePostSelect?: (post: TravelPost) => void | (() => {})
+	recipes: Recipe[] | []
+	handlePostSelect?: (post: Recipe) => void | (() => {})
 }
 export const RecipeList = ({
-	travelPosts,
+	recipes,
 	handlePostSelect = () => {},
 }: RecipeListProps) => {
 	return (
 		<main className="flex flex-wrap justify-around">
-			{travelPosts.map((post: TravelPost) => {
+			{recipes.map((post: Recipe) => {
 				return (
 					<div
 						key={post.id}
@@ -24,7 +24,7 @@ export const RecipeList = ({
 								crop="fill"
 								width="384"
 								height="250"
-								src={`${process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_FOLDER}/public/${post.imgKey}`}
+								src={`${process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_FOLDER}/public/${post.coverImage}`}
 								alt={post.description!}
 							/>
 						</figure>
