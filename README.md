@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MicroSaas Frontend
+
+![microsaas-frontend](./readmeImages/microsaas-frontend.png)
+
+This is a [Next.js](https://nextjs.org/) project that is setup to work with an AWS CDK backend.
+
+The frontend components are made with Tailwind UI, Daisy UI, and AWS Amplify UI Connected components.
+
+The applcation is written fully in TypeScript and connects to the backend using the AWS Amplify JavaScript libraries.
 
 ## Getting Started
 
