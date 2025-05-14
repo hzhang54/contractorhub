@@ -6,9 +6,14 @@ frontend:
   phases:
     preBuild:
       commands:
+        - rm -rf amplify/
+        - rm -f src/aws-exports.js
+        - echo '{"projectPath":"","defaultEditor":"code","envName":"dev"}' > .amplify/team-provider-info.json
+        - mkdir -p .amplify
         - npm ci
     build:
       commands:
+        - echo "SKIP_BACKEND_BUILD=true" >> .env
         - npm run build
   artifacts:
     baseDirectory: .next
