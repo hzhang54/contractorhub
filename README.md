@@ -37,3 +37,17 @@ I have added
 _app.tsx
 auth.ts (newly created)
 profile.tsx
+
+## Environment Variables
+
+The following environment variables are required:
+
+- `NEXT_PUBLIC_region`: AWS region (e.g., us-east-1)
+- `NEXT_PUBLIC_userpoolId`: Cognito User Pool ID
+- `NEXT_PUBLIC_userPoolWebClientId`: Cognito User Pool Web Client ID
+- `NEXT_PUBLIC_identityPoolId`: Cognito Identity Pool ID
+- `NEXT_PUBLIC_bucket`: S3 bucket name for storage
+- `NEXT_PUBLIC_appSyncURL`: AppSync GraphQL endpoint URL
+
+For local development, create a `.env.local` file with these variables.
+For production, set these in the AWS Amplify Console.
