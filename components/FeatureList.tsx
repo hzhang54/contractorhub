@@ -5,28 +5,28 @@ import {
 } from '@heroicons/react/20/solid'
 
 const createRecipesContent = {
-	heading: 'Create delicious recipes',
+	heading: 'Create successful projects',
 	subHeading: 'Effortlessly',
 	description: '',
 	displayImage:
 		'https://example.com/img/component-images/recipe-app-screenshot.png',
 	features: [
 		{
-			name: 'Recipe builder',
+			name: 'Project builder',
 			description:
-				'Our easy-to-use recipe builder lets you create and modify recipes with ease. Simply add your ingredients and instructions, and watch your recipe come to life!',
+				'Our easy-to-use project builder lets you create and modify project with ease. Simply add your before and after photos,  and descripts, and watch your projects come to life!',
 			icon: RecipeIcon,
 		},
 		{
 			name: 'Image upload',
 			description:
-				'Upload images of your creations. Our image upload feature makes it easy to share your recipes with the world!',
+				'Upload images of your projects. Our image upload feature makes it easy to share your project with the home owners!',
 			icon: FoodIcon,
 		},
 		{
-			name: 'Keep the tradition going with AI',
+			name: 'Keep the project going with AI',
 			description:
-				"Our AI will help you keep your recipes alive for generations to come. We use machine learning to help you create new recipes based on your family's favorites!",
+				"Our AI will help you keep your project organized. We use machine learning to help you create new projects based on your budget and preferences. Our AI will help you find the best project for your needs.",
 
 			icon: PeopleIcon,
 		},
@@ -81,7 +81,7 @@ const FeatureItem = ({ featureContent }: FeatureItemProps) => {
 					</div>
 					<div className="flex items-center">
 						<img
-							src="https://res.cloudinary.com/dmqt94fit/image/upload/q_auto/v1682012370/miami-lunch_50_qp1itg.png"
+							src="/2147710985.jpg"
 							alt="Product screenshot"
 							className=" w-full h-full object-cover rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-auto sm:h-auto md:-ml-4 lg:-ml-0"
 							width={1432}

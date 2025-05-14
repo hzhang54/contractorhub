@@ -8,10 +8,10 @@ export const Hero = () => {
 					<div className="flex items-center flex-wrap px-2 md:px-0">
 						<div className="relative lg:w-6/12 lg:py-24 xl:py-32">
 							<h1 className="font-bold text-4xl text-yellow-900 md:text-5xl lg:w-10/12">
-								Your family&apos;s
+								Our partner&apos;s
 								<TypewriterComponent
 									options={{
-										strings: ['stories', 'traditions', 'recipes'],
+										strings: ['achievement', 'experience', 'contribution'],
 										autoStart: true,
 
 										loop: true,
@@ -23,13 +23,11 @@ export const Hero = () => {
 								Here at{' '}
 								<a
 									className="text-yellow-700"
-									href="https://twitter.com/focusotter"
+									href="https://twitter.com/huizhang54"
 								>
-									Otterlicious
+									Lychnis Realty
 								</a>{' '}
-								we understand our fondest memories are often the ones that are
-								shared around the dinner table. We want to help you preserve
-								those memories for generations to come.
+								we connect homeowners with trusted contractors to complete projects with transparency and efficiency. We prioritize clear communication, fair practices, and accountability, ensuring quality results on time and within budget.
 							</p>
 							<p className="mt-3 font-bold text-yellow-700">
 								Get started for free today!
@@ -42,8 +40,8 @@ export const Hero = () => {
 						</div>
 						<div className="ml-auto -mb-24 lg:w-6/12">
 							<img
-								src="https://tailus.io/sources/blocks/food-delivery/preview/images/food.webp"
-								alt="food illustration"
+								src="/civil-engineer-construction-worker-manager-holding-digital-tablet-blueprints-talking-planing-about-construction-site-cooperation-teamwork-concept.jpg"
+								alt="construction illustration"
 								width="1500"
 								height="1500"
 							/>

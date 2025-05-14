@@ -1,0 +1,38 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-microsaasfrontend-dev-7685b-authRole",
+      "UnauthRoleArn": "arn:aws:iam::738207636844:role/amplify-microsaasfrontend-dev-7685b-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::738207636844:role/amplify-microsaasfrontend-dev-7685b-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-microsaasfrontend-dev-7685b-deployment",
+      "UnauthRoleName": "amplify-microsaasfrontend-dev-7685b-unauthRole",
+      "StackName": "amplify-microsaasfrontend-dev-7685b",
+      "StackId": "arn:aws:cloudformation:us-east-1:738207636844:stack/amplify-microsaasfrontend-dev-7685b/25069e40-2fa7-11f0-b98a-12440b058b15",
+      "AmplifyAppId": "d1ftklgeknqbhf"
+    },
+    "categories": {
+      "auth": {
+        "microsaasfrontend77052ded": {
+          "userPoolId": "us-east-1_y6croIhyq",
+          "userPoolName": "appsync-saas-saas-undefined-userpool",
+          "webClientId": "37aobbtq18ps6o6nngorhfh0ne",
+          "nativeClientId": "37aobbtq18ps6o6nngorhfh0ne",
+          "identityPoolId": "us-east-1:ff8bcc39-3338-4dc5-882c-695ade25ff4e",
+          "identityPoolName": "appsync-saas-saas-undefinedIdentityPool",
+          "allowUnauthenticatedIdentities": true,
+          "authRoleArn": "arn:aws:iam::738207636844:role/appsync-saas-saas-stack-u-appsyncsaassaasundefinedi-Pp39OQgNZTmu",
+          "authRoleName": "appsync-saas-saas-stack-u-appsyncsaassaasundefinedi-Pp39OQgNZTmu",
+          "unauthRoleArn": "arn:aws:iam::738207636844:role/appsync-saas-saas-stack-u-appsyncsaassaasundefinedi-sHbFLRZlHiQl",
+          "unauthRoleName": "appsync-saas-saas-stack-u-appsyncsaassaasundefinedi-sHbFLRZlHiQl"
+        }
+      },
+      "storage": {
+        "microsaasfrontendcffb966e": {
+          "bucketName": "appsync-saas-saas-stack-u-appsyncsaassaasundefined-8gtq3l3ydqx7",
+          "region": "us-east-1"
+        }
+      }
+    }
+  }
+}

@@ -12,11 +12,7 @@ export function Testimonial() {
 				<figure className="mt-10">
 					<blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
 						<p>
-							“I took a trip to Miami for work/pleasure and found the most
-							amazing food. I felt inspired and wanted to an easy way to keep
-							track of the incredible recipes I had come across. Otterlicious
-							not only solved that need but makes it easy to manage these
-							memories in one place. Thank you!”
+							“Lychnis Realty managed my kitchen renovation seamlessly, delivering excellent quality every step of the way.  Their team kept communication clear, coordinated skilled contractors, and ensured the project stayed on track and within budget.  I couldn't be happier with the results!  Thank you!”
 						</p>
 					</blockquote>
 					<figcaption className="mt-10">
@@ -26,7 +22,7 @@ export function Testimonial() {
 							alt=""
 						/>
 						<div className="mt-4 flex items-center justify-center space-x-3 text-base">
-							<div className="font-semibold text-gray-900">Michael Liendo</div>
+							<div className="font-semibold text-gray-900">Michael Wong</div>
 							<svg
 								viewBox="0 0 2 2"
 								width={3}
