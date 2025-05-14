@@ -20,6 +20,8 @@ frontend:
         - cat src/API.ts >> src/API-temp.ts
         - mv src/API-temp.ts src/API.ts
         - mv next.config-temp.js next.config.js
+        - mkdir -p pages/my-recipes/update
+        - echo 'import React from "react"; export default function UpdateRecipe() { return <div>Update Recipe</div>; }' > pages/my-recipes/update/[recipeId].tsx
         - npm run build -- --no-lint
   artifacts:
     baseDirectory: .next
