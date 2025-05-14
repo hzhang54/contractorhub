@@ -1,4 +1,7 @@
 version: 1
+env:
+  variables:
+    AMPLIFY_SKIP_BACKEND_INIT: true
 frontend:
   phases:
     preBuild:
