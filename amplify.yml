@@ -13,6 +13,9 @@ frontend:
         - npm ci
     build:
       commands:
+        - echo "export const listTravelPosts = {};" > src/graphql/queries-temp.ts
+        - cat src/graphql/queries.ts >> src/graphql/queries-temp.ts
+        - mv src/graphql/queries-temp.ts src/graphql/queries.ts
         - npm run build -- --no-lint
   artifacts:
     baseDirectory: .next
