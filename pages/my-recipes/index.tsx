@@ -68,7 +68,7 @@ const MyRecipes = ({ user, signOut }: any) => {
 					flex={1}
 				>
 					<Heading level={2} textAlign={'center'}>
-						Welcome to my recipes
+						Welcome to my projects
 					</Heading>
 					<BillingPortalLink email={user.attributes.email} />
 					{fetchedRecipes?.map((fr) => {
