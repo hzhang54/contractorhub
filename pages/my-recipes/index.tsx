@@ -11,8 +11,10 @@ import { Footer } from '@/components/Footer'
 import { Recipe } from '@/src/API'
 // added by Hui
 import { Storage } from 'aws-amplify';
+import { useRouter } from 'next/router'
 
 const MyRecipes = ({ user, signOut }: any) => {
+	const router = useRouter()
 	const [fetchedRecipes, setFetchedRecipes] = useState<
 		(Recipe | null)[] | undefined
 	>([])
@@ -76,7 +78,6 @@ const MyRecipes = ({ user, signOut }: any) => {
 							return (
 								<div key={fr.id} className="card w-96 bg-base-100 shadow-xl">
 									<figure>
-
 										<img
 											src={imageUrls[fr.id]}
 											alt={fr.title}
@@ -90,6 +91,12 @@ const MyRecipes = ({ user, signOut }: any) => {
 										<p>{fr.description}</p>
 										<div className="card-actions justify-end">
 											<div className="badge badge-outline">Project Name</div>
+											<button 
+												className="btn btn-primary btn-sm"
+												onClick={() => router.push(`/my-recipes/update/${fr.id}`)}
+											>
+												Edit
+											</button>
 										</div>
 									</div>
 								</div>

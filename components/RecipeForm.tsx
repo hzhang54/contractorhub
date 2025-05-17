@@ -1,20 +1,27 @@
 import { FileUploader } from '@aws-amplify/ui-react'
 import dynamic from 'next/dynamic'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 import 'react-quill/dist/quill.snow.css'
-import { RecipeCreateInput } from '@/src/API'
+import { RecipeCreateInput, RecipeUpdateInput } from '@/src/API'
 
 type RecipeFormProps = {
-	handleFormSubmit: (recipeData: RecipeCreateInput) => void
+	handleFormSubmit: (recipeData: RecipeCreateInput | RecipeUpdateInput) => void
+	initialValues?: {
+		id: string
+		title: string
+		description: string
+		servings: number
+		coverImage: string
+		ingredientsText: string
+		stepsText: string
+	}
 }
 
-export const RecipeForm = ({ handleFormSubmit }: RecipeFormProps) => {
-	const [fileUploadKey, setFileUploadKey] = useState<string | null>(null)
-	const [ingredientsValue, setIngredientsValue] = useState<String | undefined>()
-	const [instructionsValue, setInstructionsValue] = useState<
-		String | undefined
-	>()
+export const RecipeForm = ({ handleFormSubmit, initialValues }: RecipeFormProps) => {
+	const [fileUploadKey, setFileUploadKey] = useState<string | null>(initialValues?.coverImage || null)
+	const [ingredientsValue, setIngredientsValue] = useState<String | undefined>(initialValues?.ingredientsText)
+	const [instructionsValue, setInstructionsValue] = useState<String | undefined>(initialValues?.stepsText)
 
 	const handleFileUploadSuccess = (key: string) => {
 		console.log('the key', key)
@@ -39,14 +46,28 @@ export const RecipeForm = ({ handleFormSubmit }: RecipeFormProps) => {
 			stepsText &&
 			coverImage
 		) {
-			handleFormSubmit({
-				title,
-				description,
-				servings,
-				ingredientsText,
-				stepsText,
-				coverImage,
-			})
+			if (initialValues?.id) {
+				// If we have an ID, we're updating
+				handleFormSubmit({
+					id: initialValues.id,
+					title,
+					description,
+					servings,
+					ingredientsText,
+					stepsText,
+					coverImage,
+				})
+			} else {
+				// Otherwise we're creating
+				handleFormSubmit({
+					title,
+					description,
+					servings,
+					ingredientsText,
+					stepsText,
+					coverImage,
+				})
+			}
 		}
 	}
 
@@ -63,6 +84,11 @@ export const RecipeForm = ({ handleFormSubmit }: RecipeFormProps) => {
 					shouldAutoProceed
 					onSuccess={({ key }) => handleFileUploadSuccess(key)}
 				/>
+				{initialValues?.coverImage && !fileUploadKey?.startsWith('hi-im-a-placeholder') && (
+					<div className="mt-2 text-sm text-gray-500">
+						Current image: {initialValues.coverImage}
+					</div>
+				)}
 			</div>
 
 			<div className="col-span-2">
@@ -74,6 +100,7 @@ export const RecipeForm = ({ handleFormSubmit }: RecipeFormProps) => {
 					required
 					name="title"
 					placeholder="My amazing recipe"
+					defaultValue={initialValues?.title}
 					className="input input-secondary input-bordered border-2 p-3 md:text-xl w-full"
 				/>
 			</div>
@@ -88,6 +115,7 @@ export const RecipeForm = ({ handleFormSubmit }: RecipeFormProps) => {
 					placeholder="This recipe is special because..."
 					name="description"
 					maxLength={200}
+					defaultValue={initialValues?.description}
 					required
 				></textarea>
 			</div>
@@ -101,6 +129,7 @@ export const RecipeForm = ({ handleFormSubmit }: RecipeFormProps) => {
 					required
 					name="servings"
 					placeholder="3"
+					defaultValue={initialValues?.servings}
 					className="input input-secondary input-bordered border-2 p-3 md:text-xl w-full"
 				/>
 			</div>
@@ -113,6 +142,7 @@ export const RecipeForm = ({ handleFormSubmit }: RecipeFormProps) => {
 					className="col-span-2"
 					onChange={setIngredientsValue}
 					theme="snow"
+					defaultValue={initialValues?.ingredientsText}
 					modules={{
 						toolbar: [[{ list: 'bullet' }], ['bold', 'italic', 'underline']],
 					}}
@@ -126,6 +156,7 @@ export const RecipeForm = ({ handleFormSubmit }: RecipeFormProps) => {
 					className="col-span-2"
 					onChange={setInstructionsValue}
 					theme="snow"
+					defaultValue={initialValues?.stepsText}
 					modules={{
 						toolbar: [[{ list: 'ordered' }], ['bold', 'italic', 'underline']],
 					}}
@@ -136,7 +167,7 @@ export const RecipeForm = ({ handleFormSubmit }: RecipeFormProps) => {
 					type="submit"
 					className="btn btn-secondary py-3 px-6 w-full sm:w-32"
 				>
-					Submit
+					{initialValues ? 'Update' : 'Submit'}
 				</button>
 			</div>
 		</form>
