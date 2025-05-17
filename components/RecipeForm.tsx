@@ -1,7 +1,13 @@
 import { FileUploader } from '@aws-amplify/ui-react'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
+
+// Dynamic import of ReactQuill with loading state
+const ReactQuill = dynamic(() => import('react-quill'), { 
+  ssr: false,
+  loading: () => <div className="border p-4 text-center">Loading editor...</div>
+})
+
 import 'react-quill/dist/quill.snow.css'
 import { RecipeCreateInput, RecipeUpdateInput } from '@/src/API'
 
@@ -19,9 +25,16 @@ type RecipeFormProps = {
 }
 
 export const RecipeForm = ({ handleFormSubmit, initialValues }: RecipeFormProps) => {
+	// Add browser check inside the component
+	const [isBrowser, setIsBrowser] = useState(false)
 	const [fileUploadKey, setFileUploadKey] = useState<string | null>(initialValues?.coverImage || null)
 	const [ingredientsValue, setIngredientsValue] = useState<String | undefined>(initialValues?.ingredientsText)
 	const [instructionsValue, setInstructionsValue] = useState<String | undefined>(initialValues?.stepsText)
+
+	// Set isBrowser to true on component mount
+	useEffect(() => {
+		setIsBrowser(true)
+	}, [])
 
 	const handleFileUploadSuccess = (key: string) => {
 		console.log('the key', key)
@@ -138,29 +151,33 @@ export const RecipeForm = ({ handleFormSubmit, initialValues }: RecipeFormProps)
 				<label className="label">
 					<span className="label-text">Ingredients</span>
 				</label>
-				<ReactQuill
-					className="col-span-2"
-					onChange={setIngredientsValue}
-					theme="snow"
-					defaultValue={initialValues?.ingredientsText}
-					modules={{
-						toolbar: [[{ list: 'bullet' }], ['bold', 'italic', 'underline']],
-					}}
-				/>
+				{isBrowser && (
+					<ReactQuill
+						className="col-span-2"
+						onChange={setIngredientsValue}
+						theme="snow"
+						defaultValue={initialValues?.ingredientsText}
+						modules={{
+							toolbar: [[{ list: 'bullet' }], ['bold', 'italic', 'underline']],
+						}}
+					/>
+				)}
 			</div>
 
 			<h2>Steps</h2>
 
 			<div className="col-span-2">
-				<ReactQuill
-					className="col-span-2"
-					onChange={setInstructionsValue}
-					theme="snow"
-					defaultValue={initialValues?.stepsText}
-					modules={{
-						toolbar: [[{ list: 'ordered' }], ['bold', 'italic', 'underline']],
-					}}
-				/>
+				{isBrowser && (
+					<ReactQuill
+						className="col-span-2"
+						onChange={setInstructionsValue}
+						theme="snow"
+						defaultValue={initialValues?.stepsText}
+						modules={{
+							toolbar: [[{ list: 'ordered' }], ['bold', 'italic', 'underline']],
+						}}
+					/>
+				)}
 			</div>
 			<div className="col-span-2 text-right mb-4">
 				<button
