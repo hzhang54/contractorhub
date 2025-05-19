@@ -75,9 +75,19 @@ const UpdateRecipePage = ({ user }: UpdateRecipePageProps) => {
     } catch (err) {
       console.error("Error updating recipe:", err)
       // Log the detailed error information
+      /*
       if (err.errors) {
         console.error("GraphQL errors:", JSON.stringify(err.errors))
-      }
+      } */
+      if (
+        typeof err === "object" &&
+        err !== null &&
+        "errors" in err &&
+        Array.isArray((err as any).errors)
+      ) {
+        console.error("GraphQL errors:", JSON.stringify((err as any).errors))
+      }     
+
     }
   }
 
@@ -126,7 +136,9 @@ const UpdateRecipePage = ({ user }: UpdateRecipePageProps) => {
         <Navbar isAuthPage />
         <h1 className="text-2xl font-bold text-center mt-8">Update Recipe</h1>
         <RecipeForm 
-          handleFormSubmit={handleFormSubmit} 
+        //  handleFormSubmit={handleFormSubmit} 
+        //  handleFormSubmit={(data) => { handleFormSubmit(data); }}
+          handleFormSubmit={(data) => handleFormSubmit(data as RecipeUpdateInput)}
           initialValues={{
             id: recipe.id,
             title: recipe.title,

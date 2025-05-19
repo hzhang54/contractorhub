@@ -1,9 +1,9 @@
-import { onTravelPostCreate } from './../src/graphql/subscriptions'
-import { OnTravelPostCreateSubscription } from './../src/API'
+//import { onTravelPostCreate } from './../src/graphql/subscriptions'
+//import { OnTravelPostCreateSubscription } from './../src/API'
 import { graphqlOperation, GraphQLSubscription } from '@aws-amplify/api'
 import { API } from 'aws-amplify'
 import { checkCurrentUser } from './checkCurrentUser'
-
+/*
 export const listenForPostsAuthOrUnAuth = async () => {
 	const user = checkCurrentUser()
 	const sub = API.graphql<GraphQLSubscription<OnTravelPostCreateSubscription>>(
@@ -14,3 +14,4 @@ export const listenForPostsAuthOrUnAuth = async () => {
 	})
 	return sub
 }
+*/
